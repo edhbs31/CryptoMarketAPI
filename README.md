@@ -8,16 +8,16 @@ CryptoMarket With Node Js And Mongo DB
 - npm install
 - npm start
 #### Environment
-- export API_CRYPTO=
-- export API_KEY_CRYPTO=
-- export JWT_KEY=
-- export DB_URI=
-- export DB_NAME=
-- export PORT=
-- export IS_AES=
-- export CIPHER_KEY=
-- export IV_KEY=
-- export CLIENT_KEY=
+- export API_CRYPTO="https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
+- export API_KEY_CRYPTO="b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c"
+- export JWT_KEY="vecktwfpkigdiqtpyhlqptihwxgqmyszxmldyscwigsc"
+- export DB_URI="mongodb+srv://user:admin123@cluster0.jvfu57r.mongodb.net/?retryWrites=true&w=majority"
+- export DB_NAME="Crypto"
+- export PORT=3000
+- export IS_AES=true
+- export CIPHER_KEY="kovgywjqwjlfxndwvxlscdfhhqyzyoab"
+- export IV_KEY="labncrpoqlyhxtqc"
+- export CLIENT_KEY="Q0N2bA-YQgWI8807lM55GPjNBoXrhvsaREck-6WLn0k"
 #### Test
 npm test crypto.test.js
 ##### API POSTMAN
