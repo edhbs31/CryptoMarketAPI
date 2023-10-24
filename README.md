@@ -18,5 +18,7 @@ CryptoMarket With Node Js And Mongo DB
 - export CIPHER_KEY=
 - export IV_KEY=
 - export CLIENT_KEY=
-##### Documentation
+#### Test
+npm test crypto.test.js
+###### Documentation
 https://drive.google.com/file/d/1vxYG0Hmrh3jr1oIUOSUzff9wCBtDbZbN/view?usp=sharing 
