@@ -23,10 +23,10 @@ npm test crypto.test.js
 ##### API POSTMAN
 - https://api.postman.com/collections/23989743-f8193b9b-2df5-421c-89f7-0aef91395673?access_key=PMAT-01HDF0W73EA7Q6PXAWR0E938BX 
 - Variables:
-	-{{client_key}} : UTBOMmJBLVlRZ1dJODgwN2xNNTVHUGpOQm9Ycmh2c2FSRWNrLTZXTG4waw== 
+	- {{client_key}} : UTBOMmJBLVlRZ1dJODgwN2xNNTVHUGpOQm9Ycmh2c2FSRWNrLTZXTG4waw== 
 	- {{api_key}}: eyJpZCI6IjciLCJuYW1lIjoic2Nvb3Bfd2ViX2FwcHMifQ
 	- {{server}}: localhost:3000/
-	-{{x-access-token}}
+	- {{x-access-token}}
 
 ###### Documentation
 https://drive.google.com/file/d/1vxYG0Hmrh3jr1oIUOSUzff9wCBtDbZbN/view?usp=sharing 
