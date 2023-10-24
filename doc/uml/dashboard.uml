@@ -1,0 +1,35 @@
+@startuml
+client -> controller: Show Data Coin API ( [GET] (/getData) )
+note left of client 
+{
+    query: search by name 
+    maybe empty
+}
+end note
+controller->controller: Authenticate client (Middleware client)
+alt if un authenticated
+    controller->client: return wrong client
+end
+controller->controller: Authenticate token login (Middleware)
+alt if un authenticated
+    controller->client: return broken token
+end
+controller -> API: Send Request ( [GET] (/https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest) )
+note right of controller
+    add header X-CMC_PRO_API_KEY with env.API_KEY_CRYPTO
+end note
+API->controller: get data Coin Miner
+controller->controller: check query request if exist or note
+alt if query request is exist
+    controller->controller: declare new data array
+    loop at data
+        alt if data.name is contains query
+             controller->controller: add into new data array
+        end
+    end
+end
+alt if data is empty
+    controller->client: return false
+end
+controller->client: return true
+@enduml

@@ -1,0 +1,51 @@
+@startuml
+client -> controller: Authenticate Login ( [POST] (/login/action) )
+note left of client 
+{
+    email,
+    password,
+}
+* Notes: 
+    If env IS_AES is true,
+         then password must be sent encrypted;
+    if env IS_AES is false,
+        then you can send the original password
+end note
+controller->controller: Authenticate client (Middleware client)
+alt if un authenticated
+    controller->client: return wrong client
+end
+controller -> helper: Check Valid Email Format
+helper->controller : return true/false
+alt if: false
+    controller->client: return false
+end
+controller -> database: Check if email exist or Not
+database-> controller: return cas_users
+alt if: cas_users is empty
+   controller->client: return false 
+end
+controller->controller: Declare CryptoHelpers
+controller->controller: check if IS_AES TRUE OR Not
+alt if :IS_AES == true
+    controller->helper: decrypt password to get original password using AES 256
+end
+controller->helper: generate salt 
+helper->controller: return salt 
+controller->controller: concate original password+salt
+controller -> controller: Hash Password with SHA256
+controller->controller: compare hashed password with password with database
+alt if: password not same
+    controller->client: return false
+end
+controller->helper: generate token JWT
+controller->helper: generate Refresh token JWT
+controller->client: return true
+note left of controller
+    return {
+        username,
+        token,
+        refreshToken
+    }
+end note 
+@enduml

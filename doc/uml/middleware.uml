@@ -1,0 +1,16 @@
+@startuml
+client -> controller: Middleware Client
+note left of client 
+{
+    sent header 'x-access-token'
+}
+end note
+alt if token not exist
+    controller->client: client not found
+end
+controller->controller: Verify JWT
+alt if token expired
+    controller->client: return false
+end
+controller->client: return true
+@enduml

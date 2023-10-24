@@ -1,0 +1,16 @@
+@startuml
+client -> controller: Middleware Client
+note left of client 
+{
+    sent header 'Authorization'
+}
+end note
+alt if Authorization not exist
+    controller->client: return false
+end
+controller->controller: Encode key into base64 ASCII
+alt if: encoded key is not same with env.CLIENT_KEY
+    controller->client: return false
+end
+controller->client: return true
+@enduml
