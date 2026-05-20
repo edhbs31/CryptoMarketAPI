@@ -16,7 +16,7 @@ CryptoMarket With Node Js And Mongo DB
 - export PORT=
 - export IS_AES=
 - export CIPHER_KEY=""
-- export IV_KEY="labncrpoqlyhxtqc"
+- export IV_KEY=""
 - export CLIENT_KEY=""
 #### Test
 npm test crypto.test.js
@@ -27,6 +27,3 @@ npm test crypto.test.js
 	- {{api_key}}: 
 	- {{server}}: localhost:3000/
 	- {{x-access-token}}
-
-###### Documentation
-https://drive.google.com/file/d/1vxYG0Hmrh3jr1oIUOSUzff9wCBtDbZbN/view?usp=sharing 
